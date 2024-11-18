@@ -5,8 +5,12 @@
  */
 
 /* You can override the default Infima variables here. */
+.hero {
+  background-color: #2564eb9c;
+}
 :root {
-  --ifm-color-primary: #2563eb;
+  --ifm-color-primary: #2564eb;
+  --ifm-hero-background-color: #2564eb9c;
   --ifm-color-primary-dark: #1d4ed8;
   --ifm-color-primary-darker: #1e40af;
   --ifm-color-primary-darkest: #1e3a8a;
@@ -27,4 +31,12 @@
   --ifm-color-primary-lighter: #bfdbfe;
   --ifm-color-primary-lightest: #dbeafe;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  .hero {
+    background-color: #60a5fa9c !important;
+  }
+}
+
+.hero__title,
+.hero__subtitle {
+  color: white;
 }
