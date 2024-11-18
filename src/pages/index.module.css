@@ -1,23 +1,18 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.custom-details > summary {
+  list-style: none;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.custom-details > summary::marker {
+  display: none;
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.custom-details[open] > summary::after {
+  content: "▲";
+  float: right;
+}
+
+.custom-details > summary::after {
+  content: "▼";
+  float: right;
 }

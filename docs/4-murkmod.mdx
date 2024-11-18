@@ -1,0 +1,27 @@
+---
+title: "Installing Murkmod"
+---
+
+## Section I - Disable Extensions (if neccecary)
+
+Try to open crosh (`Ctrl+Alt+T`). If you can't open crosh due to an extension block, then create a new folder in your Downloads named `disable-extensions`. Fakemurk will automagically disable extensions so you can use crosh.
+
+## Section II - Setup Fakemurk
+
+You will be prompted to opt-in to analytics. Murkmod does not contain analytics, so this will be a one-time operation. Fakemurk analytics are anonymous and I highly reccomend you enable them.
+
+## Section III - Setup Murkmod
+
+Once in crosh/mush, select "Root Shell" by entering `1` and pressing `Enter`. Then, run the following command:
+
+```sh
+bash <(curl -SLk https://raw.githubusercontent.com/rainestorme/murkmod/main/murkmod.sh)
+```
+
+Answer the prompts and setup will continue. The tab will close automatically once finished.
+
+## Section IV - Next Steps
+
+It is highly recommended that if your school uses GoGuardian that you use [fakeguardian](fakeguardian).
+
+If you don't have GoGuardian, continue to [Finalizing Setup](finalizing-setup)
