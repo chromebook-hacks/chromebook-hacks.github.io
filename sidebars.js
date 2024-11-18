@@ -25,7 +25,7 @@
       type: 'category',
       label: 'Exploits',
       items: [
-        'badrecovery',
+        'exploits/badrecovery',
       ],
     },
     'fakemurk',
