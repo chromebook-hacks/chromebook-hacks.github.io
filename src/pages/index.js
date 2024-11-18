@@ -20,7 +20,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/get-started">
-            Docusaurus Tutorial - 5min ⏱️
+            Get Started
           </Link>
         </div>
       </div>
@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="An exploit guide and wiki for a wide variety of chromebook exploits and tools">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
