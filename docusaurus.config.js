@@ -67,9 +67,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Chrombook Exploit Guide',
+        title: 'Chromebook Exploit Guide',
         logo: {
-          alt: 'Chrombook Exploit Guide Logo',
+          alt: 'Chromebook Exploit Guide Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -100,7 +100,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Chromebook Hacks, Built with Docusaurus.`,
+        // copyright: `Copyright © ${new Date().getFullYear()} Chromebook Hacks, Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="chooser.css">
+    <title>Device Configuration</title>
+    <script>
+        function applyTheme() {
+            const theme = localStorage.getItem('theme');
+            const isDark = theme === 'dark';
+            
+            document.documentElement.classList.toggle('dark', isDark);
+            
+            // Update form elements for dark mode
+            const inputs = document.querySelectorAll('input[type="text"], input[type="number"]');
+            inputs.forEach(input => {
+                input.classList.toggle('dark:bg-zinc-700', isDark);
+                input.classList.toggle('dark:border-zinc-600', isDark);
+                input.classList.toggle('dark:text-white', isDark);
+            });
+            
+            // Update labels and text
+            document.body.classList.toggle('dark:text-white', isDark);
+        }
+
+        // Apply theme on page load
+        document.addEventListener('DOMContentLoaded', applyTheme);
+        
+        // Listen for theme changes
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'theme') applyTheme();
+        });
+    </script>
+</head>
+<body class="bg-transparent dark:text-white">
+    <div class="p-4 pl-0">
+        <form class="flex flex-col space-y-3" onsubmit="redirect()">
+            <div class="flex flex-col">
+                <label for="board" class="mb-1 font-medium text-sm">Board name:</label>
+                <input type="text" id="board" name="board" class="border-zinc-300 dark:border-zinc-600 dark:bg-zinc-700 p-1.5 border rounded text-sm dark:text-white" required placeholder="reks, lars, octopus, etc.">
+            </div>
+
+            <div class="space-y-2 text-sm">
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" id="hasLegacyCrosh" class="mt-1" checked>
+                    <label for="hasLegacyCrosh">Legacy crosh available <span class="text-xs text-zinc-500">(chrome-extension://nkoccljplnhpfnfiajclkommnmllphnl//html/crosh.html, <i>ignore extension blocks</i>)</span></label>
+                </div>
+
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" id="hasCrosh" class="mt-1" checked>
+                    <label for="hasCrosh">Modern crosh available <span class="text-xs text-zinc-500">(chrome-untrusted://crosh, <i>ignore extension blocks</i>)</span></label>
+                </div>
+
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" id="hasCroshBlock99" class="mt-1">
+                    <label for="hasCroshBlock99">Crosh blocked by administrator <span class="text-xs text-zinc-500">("Application blocked by your administrator", <i>NOT</i> "crosh is blocked")</span></label>
+                </div>
+
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" id="hasDriveFS" class="mt-1" checked>
+                    <label for="hasDriveFS">Google Drive available in Files</label>
+                </div>
+
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" id="hasARC" class="mt-1" checked>
+                    <label for="hasARC">Google Play/Android enabled</label>
+                </div>
+
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" id="hasKiosk" class="mt-1" checked>
+                    <label for="hasKiosk">Has at least one kiosk app enabled</label>
+                </div>
+            </div>
+
+            <div class="flex flex-col mt-2">
+                <label for="curVersion" class="mb-1 font-medium text-sm">Chrome OS Version:</label>
+                <input type="number" id="curVersion" name="curVersion" min="0" max="999" class="border-zinc-300 dark:border-zinc-600 dark:bg-zinc-700 p-1.5 border rounded w-24 text-center text-sm dark:text-white" required>
+            </div>
+
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 dark:hover:bg-blue-700 dark:bg-blue-600 mt-4 px-4 py-2 rounded text-sm text-white transition-colors">
+                Submit
+            </button>
+        </form>
+    </div>
+	<script src="chrome100.json.js"></script>
+	<script src="chooser.js"></script>
+</body>
+</html>

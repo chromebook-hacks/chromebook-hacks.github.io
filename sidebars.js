@@ -26,12 +26,45 @@
       label: 'Exploits',
       items: [
         'exploits/badrecovery',
+        'exploits/sh1mmer',
+        'exploits/e-halcyon',
+        'exploits/v101-crosh',
+        'exploits/v101',
+        'exploits/v81-crosh',
+        'exploits/v81-kiosk',
+        'exploits/v81',
+        'exploits/v87-crosh',
+        'exploits/v87',
+        'exploits/v91-crosh',
+        'exploits/v91',
       ],
     },
     'fakemurk',
-    'murkmod',
-    'fakeguardian',
     'finalizing-setup',
+    'what-now',
+    {
+      type: 'category',
+      label: 'Extras',
+      items: [
+        'extras/murkmod',
+        'extras/fakeguardian',
+        'extras/depthboot',
+        'extras/lilac',
+        'extras/ltbeef',
+        'extras/cedr'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Other',
+      items: [
+        'other/identify-wp',
+        'other/choose-halcyon',
+        'other/disable-wp-battery',
+        'other/disable-wp-screw',
+        'other/disable-wp-switch',
+      ]
+    }
   ],
 };
 
