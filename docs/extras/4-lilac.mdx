@@ -1,0 +1,134 @@
+---
+title: "Lilac (Device Policy Editing)"
+---
+
+## Prerequisites
+
+- A linux box running Ubuntu - generally, you can use Gitpod to build lilac, but you could also run these instructions on a local Linux box. For a URL that's already set up, see [here](https://gitpod.io/#https://github.com/MercuryWorkshop/lilac)
+
+## Section I - Install Dependencies
+
+Run the following command:
+
+```sh
+sudo apt install protobuf-compiler
+```
+
+If you're not building lilac on gitpod, then run the following commands:
+
+```sh
+git clone https://github.com/MercuryWorkshop/lilac.git
+cd lilac
+```
+
+## Section II - Build Boringssl
+
+Run the following commands:
+
+```sh
+cd boringssl
+mkdir -p build
+cd build
+cmake -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE ..
+make
+make install DESTDIR=../install
+cd ../../
+```
+
+## Section III - Build the Protocol Buffers
+
+Run the following command:
+
+```sh
+protoc -I proto proto/* --cpp_out=.
+```
+
+## Section IV - Compile Lilac
+
+Before proceeding, consider if you want your device background image to be overridden with a patched version. If not, modify line 75 to contain the following:
+
+```cc
+const std::string DWIP_MDWIV = ""; // DeviceWallpaperImageProto.mutable_device_wallpaper_image
+```
+
+Run:
+
+```sh
+make
+```
+
+## Section V - Extract Device Policy
+
+Open a root shell through mush. Run the following commands to copy your device policy to your Downloads folder:
+
+```sh
+mkdir -p /home/chronos/user/Downloads/devicesettings
+chmod 777 /home/chronos/user/Downloads/devicesettings
+cp /var/lib/devicesettings/* /home/chronos/user/Downloads/devicesettings/
+```
+
+## Section VI - Modify Device Policy
+
+Copy all the files in `/home/chronos/user/Downloads/devicesettings` to your Linux box. If using Gitpod, just create a new folder called `devicesettings` and drag and drop the files there.
+
+Then, find the file name with the lowest number after `policy` - like `policy.25` or `policy.26` and remember that filename.
+
+Now, run the following commands to patch the policy with Lilac:
+
+```sh
+cd devicesettings
+../lilac patch policy.X
+```
+
+## Section VII - Replace Policy, Set Launch Flags, and Swap Release Channel
+
+Download the files to your downloads folder in a directory called `newdevicesettings` and run the following command in a root shell to configure your Chromebook for the exploit:
+
+```sh
+sed -i 's/CHROMEOS_RELEASE_TRACK=stable-channel/CHROMEOS_RELEASE_TRACK=testimage-channel/g' /etc/lsb-release
+```
+
+Now, we need to relaunch /opt/google/chrome/chrome with the required launch flag, `--disable-policy-key-verification`. To do so, we'll use a method originally found by TitaniumNetwork, which in effect is a simple bash script to kill and relaunch the process with new command-line flags.
+
+First, find your command-line arguments on `chrome://version`. Copy the entire string, as missing flags could cause bugs. Then, create a new file and edit it with `vi`, like this:
+
+```sh
+cd ~
+touch relaunch_with_flags.sh
+vi relaunch_with_flags.sh
+```
+
+Inside of vim, add the following content (press `i` before typing anything to enter insert mode):
+
+```txt
+pkill -9 chrome
+```
+
+Create a new line and paste the entire string you got from `chrome://version`, but with `--disable-policy-key-verification` added to the end. Press `Esc`, then type `wq` and press `Enter`. Vi should exit and you should be good to run the script:
+
+```
+bash relaunch_with_flags.sh
+```
+
+Sign back in and you'll be good to move on to the next step.
+
+## Section VIII - Overwrite Policies On-Device
+
+Download the policies (and the `owner.key` file) into a new folder in your Downloads directory named `newdevicesettings` and run the following command in a root shell:
+
+```sh
+cp /home/chronos/user/Downloads/newdevicesettings/* /var/lib/devicesettings
+```
+
+## Section IX - Revert Changes
+
+When you're done enjoying modified device policies, you can revert the changes by:
+
+- Running the following command:
+
+```sh
+sed -i 's/CHROMEOS_RELEASE_TRACK=testimage-channel/CHROMEOS_RELEASE_TRACK=stable-channel/g' /etc/lsb-release
+```
+
+- Copying the original policy files back to their original location
+- Restarting your device

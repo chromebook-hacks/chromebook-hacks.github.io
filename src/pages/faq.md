@@ -7,7 +7,7 @@ title: "FAQ"
 <details>
   <summary>Can I unblock websites blocked by GoGuardian while keeping the extension enabled?</summary>
 
-  Yes! Refer to our [FakeGuardian](/docs/fakeguardian) guide for more information.
+  Yes! Refer to our [FakeGuardian](/docs/extras/fakeguardian) guide for more information.
 </details>
 
 <details>
