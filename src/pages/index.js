@@ -35,7 +35,7 @@ export default function Home() {
 	return (
 		<Layout
 			title={`${siteConfig.title}`}
-			description="An exploit guide and wiki for a wide variety of chromebook exploits and tools"
+			description="An exploit guide and wiki for a wide variety of Chromebook exploits and tools"
 		>
 			<HomepageHeader />
 			<main>
