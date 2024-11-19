@@ -51,7 +51,8 @@
         'extras/depthboot',
         'extras/lilac',
         'extras/ltbeef',
-        'extras/cedr'
+        'extras/cedr',
+        'extras/useragent-switching'
       ]
     },
     {
