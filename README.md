@@ -39,3 +39,9 @@ $ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+### Contributors
+<a href="https://github.com/chromebook-hacks/chromebook-hacks.github.io/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=chromebook-hacks/chromebook-hacks.github.io" />
+</a>
+
