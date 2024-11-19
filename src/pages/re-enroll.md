@@ -3,7 +3,7 @@ title: "Re-Enrolling"
 ---
 
 
-If you followed the guide as recommended, you should have installed fakemurk, which means that you can just select the "Emergency Revert and Re-Enroll" option in mush and go on with your day. Or, even better, if you installed murkmod you can select "Update Emergency Backup" to update the backup to the latest verion of ChromeOS, then select "Emergency Revert and Re-Enroll" to get back to the latest version.
+If you followed the guide as recommended, you should have installed fakemurk, which means that you can just select the "Emergency Revert and Re-Enroll" option in mush and go on with your day. Or if you installed murkmod you can select "Update Emergency Backup" to update the backup to the latest verion of ChromeOS, then select "Emergency Revert and Re-Enroll" to get back to the latest version.
 
 ## Prerequisites
 
