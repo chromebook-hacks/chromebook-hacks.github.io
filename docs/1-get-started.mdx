@@ -1,44 +1,22 @@
----
+﻿---
 title: "Get Started"
 pagination_next: null
 ---
 
-Before starting this guide, we first have to check some key information about your Chromebook.
+Before starting this guide, we first have to check two things: your Chromebook's kernver and your board name.
 
-#### Section I - Finding Your Board
+#### Section I - Finding Your Board and Kernver
 
-1. Go to `chrome://version` in a new tab
-1. Find the line that says "Platform" and then find the text that says `stable-channel`. Find the one-word board codename after that. This is your *board name*. Save it off somewhere, you'll need it in a bit.
-
-![Replace All Button](\img\find-board-stable-channel.png)
-
-If chrome://version is blocked, open Settings, go to About ChromeOS, click Additional details, click the copy icon, and paste the text into an editor to view the details.
+1. Press ESC + ↻ + ⏻ to reboot into recovery mode.
+1. Look at the bottom where it would either say something like "DUFFY-NISD" or "SORAKA C7B-A3A-F3P-28J-Y7Y". The first word (in this case DUFFY or SORAKA) is your codename, the rest is irrelevant.
+1. Now, checking your kernver, simply press tab and look for where it says kernver=0x00000000 (or something similar). The last number is your kernver.
+1. To get your board name from your codename, simply go to [this website](http://cros.tech/). Enter your codename in the search bar and it should pop up with your model and a version list. Under the model name will be "board:" followed by your board name.
 
 
-#### Section II - Crosh Checks
+#### Section II - Select a Method
 
-1. Now, we're going to check if various versions of `crosh`, the ChRomeOs developer SHell are accessable on your device.
-1. First, try to visit the following site: `chrome-extension://nkoccljplnhpfnfiajclkommnmllphnl//html/crosh.html`. If it is blocked by an extension (such as GoGuardian or Securly) but doesn't display a "This page has been blocked by your administrator" page with a frowning page icon, or is unblocked altogether, then you can skip the next steps.
-1. If that didn't work, press `Ctrl+Alt+T`. A tab will open. If it too is blocked by an extension but does not produce a "This application is blocked by your administrator" error, then you can continue to the next step. If it is accessable, then you can also proceed.
+Now that we have your board name and kernver, we can select an exploit method.
 
-#### Section III - Checking Google Services and Kiosk Apps
+If you are on kernver 3 or below, great! You can use the [BadRecovery](exploits/badrecovery) method.
 
-1. Open your Files app. Check if you have a tab on the left labeled "Google Drive".
-1. Next, check for the Google Play app on your device.
-1. Log out of your device (`Ctrl+Shift+Q` twice)
-1. Look at the bottom left of the screen for an "Apps" option. Remember if this option is there.
-
-#### Section IV - Select a Method
-
-To find the correct exploit method for your device, please enter the system version you found in Sections I, II, and III.
-
-:::note
-
-This tool is in beta and may be buggy. If the exploit it gave you does not work, try **[BadRecovery](exploits/badrecovery)** instead.
-
-:::
-
-<iframe
-	style={{ width: '100%', height: '500px' }}
-	src="/chooser.html"
-/>
+If you are on kernver 4 or above, you can use [BR1CK](http://br1ck.vercel.app/).

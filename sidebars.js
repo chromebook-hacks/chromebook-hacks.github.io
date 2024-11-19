@@ -27,16 +27,7 @@
       items: [
         'exploits/badrecovery',
         'exploits/sh1mmer',
-        'exploits/e-halcyon',
-        'exploits/v101-crosh',
-        'exploits/v101',
-        'exploits/v81-crosh',
-        'exploits/v81-kiosk',
-        'exploits/v81',
-        'exploits/v87-crosh',
-        'exploits/v87',
-        'exploits/v91-crosh',
-        'exploits/v91',
+        'exploits/e-halcyon'
       ],
     },
     'fakemurk',
@@ -64,7 +55,24 @@
         'other/disable-wp-screw',
         'other/disable-wp-switch',
       ]
-    }
+    },
+         'exploits-legacy/get-started',
+         {
+             type: 'category',
+             label: 'Exploits (Legacy)',
+             items: [
+                 'exploits-legacy/get-started',
+                 'exploits-legacy/v101-crosh',
+                 'exploits-legacy/v101',
+                 'exploits-legacy/v81-crosh',
+                 'exploits-legacy/v81-kiosk',
+                 'exploits-legacy/v81',
+                 'exploits-legacy/v87-crosh',
+                 'exploits-legacy/v87',
+                 'exploits-legacy/v91-crosh',
+                 'exploits-legacy/v91'
+             ],
+         }
   ],
 };
 
