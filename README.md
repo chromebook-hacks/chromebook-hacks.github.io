@@ -5,7 +5,7 @@ An updated exploit guide and wiki for a wide variety of chromebook exploits and 
 ### Installation
 
 ```
-$ npm i
+$ npm i 
 ```
 
 ### Local Development
