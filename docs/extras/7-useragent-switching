@@ -1,0 +1,42 @@
+---
+title: "Switching Your User-Agent"
+pagination_prev: get-started
+pagination_next: finalizing-setup
+---
+
+## Why do this?
+Sometimes, your school district websites (I-Ready for example) might have requirements for Chrome.
+
+If you downgraded to [fakemurk](../fakemurk), this is very useful.
+
+## Prerequisites
+- Fakemurk (optional)
+- Murkmod (optional)
+- Access to developer mode on `chrome://extensions`
+
+## Section I - Enabling Developer Mode
+Head on over to `chrome://extensions` and, in the top right, you will find a Developer Mode toggle.
+
+If this is blocked for you, install [fakemurk](../fakemurk)
+
+Once you've enabled it you are good to go.
+
+## Section II - Getting a UserAgent Switcher
+Download the source code for the [UserAgent-Switcher](https://github.com/ray-lothian/UserAgent-Switcher/archive/refs/tags/v0.6.2.zip)
+
+Once downloaded, go into your Files app and extract the files. 
+
+After that go back to `chrome://extensions` and click `Load Unpacked`.
+
+Click on the folder you extracted, head into the `v3` directory and click `Open`.
+
+You have officially installed the extension.
+
+## Section III - Next Steps
+It is recommended that you pin the extension for easier access.
+
+Click on the extension and make sure to select `Chrome`, `Windows`, and then the latest version of Chrome.
+
+You can now access all your school services again!
+
+You're almost there! Continue to [Finalizing Setup](/finalizing-setup) to finish! 
