@@ -64,6 +64,7 @@
         'other/disable-wp-battery',
         'other/disable-wp-screw',
         'other/disable-wp-switch',
+        'other/re-enroll',
       ]
     }
   ],
