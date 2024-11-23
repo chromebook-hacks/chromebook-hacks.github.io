@@ -7,6 +7,11 @@
 # Generated files
 .docusaurus
 .cache-loader
+CopilotIndices
+FileContentIndex
+v17
+slnx.sqlite
+VSWorkspaceState.json
 
 # Misc
 .DS_Store
