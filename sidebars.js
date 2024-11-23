@@ -47,7 +47,6 @@
       label: 'Extras',
       items: [
         'extras/murkmod',
-        'extras/fakeguardian',
         'extras/depthboot',
         'extras/lilac',
         'extras/ltbeef',
